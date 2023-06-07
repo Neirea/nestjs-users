@@ -31,7 +31,7 @@ $ npm run start:prod
 - boss sees self and all subordinates (recursively)
 - regular user sees only herself
 
-'<server_url>/users/change-boss': Changes user's boss (only boss can do that and only for his/her subordinates)
+'<server_url>/users/change-boss': Changes user\'s boss (only boss can do that and only for his/her subordinates)
 
 '<server_url>/users/populate': Creates test Users once 
 
