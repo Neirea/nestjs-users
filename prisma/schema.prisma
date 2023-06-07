@@ -1,0 +1,33 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id             String          @id @default(cuid())
+    username       String          @unique
+    password       Password?
+    role           Role            @default(USER)
+    boss           User?           @relation("Subordinates", fields: [boss_id], references: [id])
+    subordinates   User[]          @relation("Subordinates")
+    boss_id        String?
+    created_at     DateTime        @default(now())
+
+    @@index([role])
+}
+
+model Password {
+    userId   String @unique
+    user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    hash String
+}
+
+enum Role {
+    ADMIN
+    BOSS
+    USER
+}
