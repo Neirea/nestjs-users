@@ -9,7 +9,7 @@ $ npm install
 - SESSION_SECRET: <your_secret>
 ```
 
-# Prisma
+## Prisma
 
 ```bash
 # to apply prisma schema
@@ -31,18 +31,31 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-# API
-1. '/users/': Returns list of users, taking into account the following:
+# API Documentation
+## Base URL
+http://localhost:3000
+
+## Authentication
+Using session-based authentication with Redis.
+
+## Endpoints
+1. ### GET /users/
+    Returns list of users, taking into account the following:
     - administrator sees everyone
     - boss sees self and all subordinates (recursively)
     - regular user sees only herself
 
-2. '/users/change-boss': Changes user\'s boss (only boss can do that and only for his/her subordinates)
+2. ### PATCH /users/change-boss
+    Changes user\'s boss (only boss can do that and only for his/her subordinates)
 
-3. '/users/populate': Creates test Users once 
+3. ### POST /users/populate
+    Creates test Users once 
 
-4. '/auth/register': Create new user with 'username' and 'password' and default role 'User'
+4. ### POST /auth/register
+    Create new user with 'username' and 'password' and default role 'User'
 
-5. '/auth/login': User login with 'username' and 'password'
+5. ### POST /auth/login
+    User login with 'username' and 'password'
 
-6. '/auth/logout' Logs out current user
+6. ### DELETE /auth/logout
+    Logs out current user
