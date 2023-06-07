@@ -9,6 +9,13 @@ $ npm install
 - SESSION_SECRET: <your_secret>
 ```
 
+# Prisma
+
+```bash
+# to apply prisma schema
+$ npx prisma db push
+```
+
 ## Running the app
 
 ```bash
